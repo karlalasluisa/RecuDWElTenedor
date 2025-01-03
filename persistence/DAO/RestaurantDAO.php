@@ -44,6 +44,13 @@ class RestaurantDAO {
         $stmt = $db->prepare("UPDATE restaurant SET name = ?, image_url = ?, price_range = ?, menu = ?, category_id = ? WHERE id = ?");
         $stmt->execute([$name, $image_url, $price_range, $menu, $category_id, $id]);
     }
+    
+    public static function delete($id) {
+    $db = Database::getInstance();
+    $stmt = $db->prepare("DELETE FROM restaurant WHERE id = ?");
+    $stmt->execute([$id]);
+}
+
 }
 
 ?>
